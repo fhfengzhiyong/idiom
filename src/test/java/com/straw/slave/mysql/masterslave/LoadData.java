@@ -1,6 +1,6 @@
 package com.straw.slave.mysql.masterslave;
 
-import com.straw.slave.model.YesoulChenYu;
+import com.straw.slave.model.Yesoulchenyu;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -38,7 +38,7 @@ public class LoadData {
                 if (line.startsWith(start)) {
                     String[] split = line.split("\\|");
                     if (split != null && split.length > 0) {
-                        YesoulChenYu yesoulChenYu = new YesoulChenYu();
+                        Yesoulchenyu yesoulChenYu = new Yesoulchenyu();
                         yesoulChenYu.setId(UUID.randomUUID().toString());
                         yesoulChenYu.setContext(split[1].trim());
                         yesoulChenYu.setPingYin(split[2].trim());

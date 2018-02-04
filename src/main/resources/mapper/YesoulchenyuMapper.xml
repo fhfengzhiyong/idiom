@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.straw.slave.dao.YesoulchenyuDao" >
+  <resultMap id="BaseResultMap" type="com.straw.slave.model.Yesoulchenyu" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="context" property="context" jdbcType="VARCHAR" />
+    <result column="ping_yin" property="pingYin" jdbcType="VARCHAR" />
+    <result column="shi_yi" property="shiYi" jdbcType="VARCHAR" />
+    <result column="chu_chu" property="chuChu" jdbcType="VARCHAR" />
+    <result column="li_zi" property="liZi" jdbcType="VARCHAR" />
+    <result column="sping_yin" property="spingYin" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, context, ping_yin, shi_yi, chu_chu, li_zi, sping_yin
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from yesoulchenyu
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from yesoulchenyu
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.straw.slave.model.Yesoulchenyu" >
+    insert into yesoulchenyu (id, context, ping_yin, 
+      shi_yi, chu_chu, li_zi, 
+      sping_yin)
+    values (#{id,jdbcType=VARCHAR}, #{context,jdbcType=VARCHAR}, #{pingYin,jdbcType=VARCHAR}, 
+      #{shiYi,jdbcType=VARCHAR}, #{chuChu,jdbcType=VARCHAR}, #{liZi,jdbcType=VARCHAR}, 
+      #{spingYin,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.straw.slave.model.Yesoulchenyu" >
+    insert into yesoulchenyu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="context != null" >
+        context,
+      </if>
+      <if test="pingYin != null" >
+        ping_yin,
+      </if>
+      <if test="shiYi != null" >
+        shi_yi,
+      </if>
+      <if test="chuChu != null" >
+        chu_chu,
+      </if>
+      <if test="liZi != null" >
+        li_zi,
+      </if>
+      <if test="spingYin != null" >
+        sping_yin,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="context != null" >
+        #{context,jdbcType=VARCHAR},
+      </if>
+      <if test="pingYin != null" >
+        #{pingYin,jdbcType=VARCHAR},
+      </if>
+      <if test="shiYi != null" >
+        #{shiYi,jdbcType=VARCHAR},
+      </if>
+      <if test="chuChu != null" >
+        #{chuChu,jdbcType=VARCHAR},
+      </if>
+      <if test="liZi != null" >
+        #{liZi,jdbcType=VARCHAR},
+      </if>
+      <if test="spingYin != null" >
+        #{spingYin,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.straw.slave.model.Yesoulchenyu" >
+    update yesoulchenyu
+    <set >
+      <if test="context != null" >
+        context = #{context,jdbcType=VARCHAR},
+      </if>
+      <if test="pingYin != null" >
+        ping_yin = #{pingYin,jdbcType=VARCHAR},
+      </if>
+      <if test="shiYi != null" >
+        shi_yi = #{shiYi,jdbcType=VARCHAR},
+      </if>
+      <if test="chuChu != null" >
+        chu_chu = #{chuChu,jdbcType=VARCHAR},
+      </if>
+      <if test="liZi != null" >
+        li_zi = #{liZi,jdbcType=VARCHAR},
+      </if>
+      <if test="spingYin != null" >
+        sping_yin = #{spingYin,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.straw.slave.model.Yesoulchenyu" >
+    update yesoulchenyu
+    set context = #{context,jdbcType=VARCHAR},
+      ping_yin = #{pingYin,jdbcType=VARCHAR},
+      shi_yi = #{shiYi,jdbcType=VARCHAR},
+      chu_chu = #{chuChu,jdbcType=VARCHAR},
+      li_zi = #{liZi,jdbcType=VARCHAR},
+      sping_yin = #{spingYin,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

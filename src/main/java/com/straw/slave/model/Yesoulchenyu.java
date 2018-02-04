@@ -1,6 +1,6 @@
 package com.straw.slave.model;
 
-public class YesoulChenYu {
+public class Yesoulchenyu {
     private String id;
 
     private String context;

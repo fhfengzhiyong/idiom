@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+    
+    
+    <typeHandlers>
+		<typeHandler handler="com.zhenhuixuan315.common.handler.UniversalEnumHandler" javaType="com.zhenhuixuan315.modules.monitor.enums.State" jdbcType="CHAR"/>
+		<typeHandler handler="com.zhenhuixuan315.common.handler.UniversalEnumHandler" javaType="com.zhenhuixuan315.modules.monitor.enums.Result" jdbcType="CHAR"/>
+		<typeHandler handler="com.zhenhuixuan315.common.handler.UniversalEnumHandler" javaType="com.zhenhuixuan315.modules.monitor.enums.Protocol" jdbcType="CHAR"/>
+	</typeHandlers>
+	
+	<plugins>
+		<plugin interceptor="com.zhenhuixuan315.common.interceptor.PerformanceInterceptor"></plugin>
+	</plugins>
+</configuration>
